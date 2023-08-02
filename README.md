@@ -1,7 +1,7 @@
 # 제 8회 부산 ICT 융합 해커톤 대회 참가 프로젝트
 ## 1. 프로젝트 소개 
 - 주제: 인삼 년근 판독 및 등급 식별 AI 모델 개발, 웹 서비스 개발
-- 활용 데이터 : <a href="https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=71426" style="color: red;">인삼 년근 판독 및 등급 식별을 위한 인공지능 학습데이터(AI Hub)</a>
+- 활용 데이터 : [인삼 년근 판독 및 등급 식별을 위한 인공지능 학습데이터(AI Hub)](https://www.aihub.or.kr/aihubdata/data/view.docurrMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=71426)
 - 기간: 2023.08.01 ~ 진행중
 
 ## 2. 팀원 
