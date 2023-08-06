@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-ScoringApplication<scoring>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.ginseng.scoring.ScoringApplication",
+      "projectName": "scoring",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
