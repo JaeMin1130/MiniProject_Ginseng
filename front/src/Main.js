@@ -2,6 +2,7 @@ import { Box, Button, Card, CardContent, Divider, Grid, Icon, Paper, TextField, 
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ImageLoader from "./ImageLoader";
 import { call } from "./ApiService";
+import ImageTest from "./ImageTest";
 
 export default function Main() {
   return (
@@ -13,6 +14,7 @@ export default function Main() {
       </Grid>
       <Grid item xs={5}>
         <ImageLoader />
+        {/* <ImageTest /> */}
       </Grid>
       <Grid item xs={2} sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
         <ArrowForwardIcon sx={{ fontSize: "100px" }} />
@@ -23,7 +25,7 @@ export default function Main() {
             display: "flex",
             justifyContent: "center",
             alignItems: "center", // Center the image vertically
-            aspectRatio: "1 / 1", // Make the Box container square
+            aspectRatio: "1 / 1.3", // Make the Box container square
             border: "2px solid grey",
             borderRadius: "8px",
             position: "relative",

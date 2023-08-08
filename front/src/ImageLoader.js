@@ -9,18 +9,18 @@ import imageCompression from "browser-image-compression";
 import React, { useCallback, useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { call } from "./ApiService";
+import axios from "axios";
 
 export default function ImageLoader() {
   const [imageUpload, setImageUpload] = useState([]);
-  const [uploadPreview, setUploadPreview] = useState([]);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
-  const [selectedFileName, setSelectedFileName] = useState("");
-  const [compressedFilesString, setCompressedFilesString] = useState(""); // Store compressed files as a string
+  const [fileName, setFileName] = useState("");
+  const [fileType, setFileType] = useState("");
 
   const handleImageCompress = async (file) => {
     const options = {
       maxSizeMB: 0.2, // Maximum image size
-      maxWidthOrHeight: 500, // Maximum width or height
+      maxWidthOrHeight: 800, // Maximum width or height
       useWebWorker: true,
     };
 
@@ -44,45 +44,49 @@ export default function ImageLoader() {
         const compressedFiles = await Promise.all(acceptedFiles.map((file) => handleImageCompress(file)));
         const validCompressedFiles = compressedFiles.filter((file) => file !== null);
         setImageUpload([...imageUpload, ...validCompressedFiles]);
-        setUploadPreview(validCompressedFiles.map((file) => URL.createObjectURL(file)));
-        setSelectedFileName(acceptedFiles[0].name);
-        setCompressedFilesString(JSON.stringify(validCompressedFiles)); // Convert array to JSON string
+        setFileName(acceptedFiles[0].name);
+        setFileType(acceptedFiles[0].type);
       }
     },
     [imageUpload, handleImageCompress]
   );
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop: handleDrop });
 
-  // let formData = new FormData();
-  // imageUpload.forEach((file) => {
-  //   formData.append("file", file); // Use 'file' as the field name
-  // });
-  // console.log("imageUpload", imageUpload);
-  // console.log("formData", formData);
   const onClickHandeler = (event) => {
     event.stopPropagation();
-    // call("/fileUpload", "POST", imageUpload);
+
+    // Blob -> File(Blob으로 보내니까 filename을 못 읽음)
+    const file = new File([imageUpload[0]], fileName, {
+      type: fileType,
+    });
+    console.log("file", file);
+    console.log("imageUpload", imageUpload);
+    const formData = new FormData();
+    formData.append("file", file);
+
+    axios
+      .post("http://localhost:5000/fileUpload", formData)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log("error", err);
+      });
   };
 
   return (
     <Box
       {...getRootProps()}
-      component="form"
-      action="http://localhost:5000/fileUpload"
-      method="POST"
-      encType="multipart/form-data"
       sx={{
         display: "flex",
         justifyContent: "center",
         alignItems: "center", // Center the image vertically
-        aspectRatio: "1 / 1", // Make the Box container square
+        aspectRatio: "1 / 1.3", // Make the Box container square
         border: isDragActive ? "2px solid tomato" : "2px solid grey",
         borderRadius: "8px",
         position: "relative",
       }}
     >
-      <Input type="file" name="file" />
-
       {imageUpload.length > 0 ? (
         <Box
           sx={{

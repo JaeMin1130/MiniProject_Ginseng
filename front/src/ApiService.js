@@ -3,7 +3,7 @@ import { API_BASE_URL } from "./api-config";
 export function call(api, method, request) {
   const headers = new Headers({
     enctype: "multipart/form-data",
-    "Content-Type": "multipart/form-data; boundary=<calculated when request is sent>",
+    "Content-Type": "multipart/form-data",
   });
   let options = {
     headers: headers,
