@@ -1,6 +1,7 @@
 import { Box, Container, CssBaseline, createTheme } from "@mui/material";
-import Main from "./Main";
+import MainMain from "./Main";
 import { ThemeProvider } from "@emotion/react";
+
 const theme = createTheme({
   palette: {
     background: {
@@ -8,18 +9,18 @@ const theme = createTheme({
     },
     primary: {
       main: "#000000",
-      // light: will be calculated from palette.primary.main,
-      // dark: will be calculated from palette.primary.main,
-      // contrastText: will be calculated to contrast with palette.primary.main
     },
   },
+  height: "100vh", // Add this line to set the height
 });
+
+  
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Container>
-        <Main />
+      <Container >
+        <MainMain />
       </Container>
     </ThemeProvider>
   );

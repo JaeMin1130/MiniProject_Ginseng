@@ -1,0 +1,17 @@
+.submitButton {
+  position: absolute;
+  display: inline-block;
+  animation: horizontal 0.5s ease-in-out infinite;
+}
+
+@keyframes horizontal {
+0% {
+  margin-right: 20px;
+}
+50% {
+  margin-left: 20px;
+}
+100% {
+  margin-left: 0px;
+}
+}
