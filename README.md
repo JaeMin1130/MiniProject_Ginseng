@@ -20,5 +20,6 @@
 - 08.08 : input 태그 없이 이미지 업로드 구현
 - 08.09 : request -> AI 모델 예측 -> response 통신 성공, 웹 개발에서 앱 개발로 전환
 - 08.10 : 앱 개발 실패(제한 시간 임박, 이유 모를 팅김 현상), 웹 개발로 전환 후 프로토타입 구현
-
+- [<img width="23" src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Notion-logo.svg"/>
+ 개발 과정 보러 가기](https://ionian-basement-e0c.notion.site/Ginseng-13aa9f5bfa0446639223d9f759b74f14?pvs=4)
   ## 4. 느낀점
